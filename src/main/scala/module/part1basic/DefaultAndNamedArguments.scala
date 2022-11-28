@@ -1,0 +1,43 @@
+package module.part1basic
+
+object DefaultAndNamedArguments extends App {
+  /*
+    -----------------
+  */
+  // DEFAULT ARGUMENTS
+  // IF THE VALUE IS NOT PRESENT IT'LL TAKE DEFAULT VALUE BUT VALUE IS ALREADY PARSING IT'LL TAKE ACTUAL VALUE
+  /* VALUE IS PARSING IN EVERY LEADING ARGUMENTS -> IF THE LEADING ARGUMENTS TYPE IS MISMATCHED WITH ACTUAL VALUE
+  THEN IT'LL SHOWING THE COMPILATION ERROR */
+
+  def employeeDetails(empId: Int, empName: String, orgName: String = "META"): Unit = {
+    println("ID: " + empId + ", NAME: " + empName + ", ORGANISATION: " + orgName)
+  }
+  /*
+  HERE BOTH EMPLOYEES ARE WORKING IN A SAME ORGANISATION SO YOU'LL MENTION THE ORGANISATION IN DEFAULT VALUE
+  */
+  employeeDetails(100, "Soumya")
+  employeeDetails(200, "RAKESH")
+  /*
+    BUT HERE SOUMYA HAS SWITCHED HIS COMPANY TO DIFFERENT ORGANISATION
+    SO HERE VALUE IS OVERRIDDEN OF EMPLOYEE INFORMATION FOR SOUMYA
+  */
+  employeeDetails(100, "Soumya", "GOOGLE")
+  employeeDetails(200, "RAKESH")
+
+  /*
+    -----------------
+  */
+
+  // NAMED ARGUMENTS
+  // HERE FUNCTION CALL ARGUMENTS NAME IS MATCHED TO THE ACTUAL ARGUMENTS NAME
+  /* HERE YOU CAN'T MISMATCHED THE ACTUAL NAME IN THE FUNCTION SIGNATURE OTHERWISE YOU GOT THE COMPILATION ERROR.
+     SO YOU NEED TO GIVE THE SAME NAME FOR ACTUAL ARGUMENTS IN TO THE FUNCTION SIGNATURE */
+
+  def employeeInformation(empId: Int, empName: String, orgName: String = "META"): Unit = {
+    println("EMPLOYEE ID: " + empId + ", EMPLOYEE NAME: " + empName + ", ORGANISATION: " + orgName)
+  }
+  // HERE YOU NEED TO PASS THE SAME ARGUMENTS IN TO THE FUNCTION SIGNATURE AND GIVE THE SIMILAR TYPE
+  // HERE INDEX OF ARGUMENTS IS DOESN'T MATTER
+  employeeInformation(empName = "ASHIS", empId = 1)
+  employeeInformation(empId = 4, empName = "SRUTI", orgName = "MICROSOFT")
+}
